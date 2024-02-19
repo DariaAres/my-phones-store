@@ -5,6 +5,9 @@ import 'package:my_phones_store/pages/product_detail_screen.dart';
 import 'package:my_phones_store/services/product_service.dart';
 import 'package:my_phones_store/screens/products.dart';
 import 'package:my_phones_store/screens/about.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class ProductListScreen extends StatefulWidget {
   @override
@@ -292,68 +295,40 @@ class _ProductListScreenState extends State<ProductListScreen> {
               ),
               SizedBox(height: 20),
               Container(
-                color: Color.fromARGB(255, 0, 0, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'All Our Available Brands',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 255, 251, 0),
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WebViewPage(),
                         ),
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      height: 140,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: imageListt.length,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              margin: EdgeInsets.all(14),
-                              width: MediaQuery.of(context).size.width * 0.2,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      imageListt[index],
-                                      fit: BoxFit.cover,
-                                      height: 80,
-                                      width: 80,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10),
-                                  Text(
-                                    texxt[index % texxt.length],
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'times new roman',
-                                      color: Color.fromARGB(255, 255, 255, 255),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                      );
+                    },
+                    child: Text('Open Web-page'),
+                )
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+class WebViewPage extends StatefulWidget {
+  @override
+  _WebViewPageState createState() => _WebViewPageState();
+}
+
+class _WebViewPageState extends State<WebViewPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Local Web Page'),
+      ),
+      body: WebView(
+        initialUrl: 'https://docs.flutter.dev',
+        javascriptMode: JavascriptMode.unrestricted,
       ),
     );
   }

@@ -41,7 +41,7 @@ class _About extends State<About> {
                 ),
                 SizedBox(height: 10.0),
                 Text(
-                  'The project is made by: Mostafa Hassan',
+                  'The project is made by: Daria Kapoor',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 0, 0, 0),

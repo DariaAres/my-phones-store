@@ -77,7 +77,6 @@ class ProductDetailScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                       style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 243, 220, 11),
                         padding:
                             EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                         shape: RoundedRectangleBorder(

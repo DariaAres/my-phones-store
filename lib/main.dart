@@ -123,8 +123,6 @@ class _MainScreen extends State<MainScreen>
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 255, 255, 255),
-                    onPrimary: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50.0),
                       side: BorderSide(color: Color.fromARGB(255, 0, 0, 0)),
