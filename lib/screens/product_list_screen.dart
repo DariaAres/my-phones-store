@@ -5,9 +5,8 @@ import 'package:my_phones_store/pages/product_detail_screen.dart';
 import 'package:my_phones_store/services/product_service.dart';
 import 'package:my_phones_store/screens/products.dart';
 import 'package:my_phones_store/screens/about.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductListScreen extends StatefulWidget {
   @override
@@ -295,18 +294,24 @@ class _ProductListScreenState extends State<ProductListScreen> {
               ),
               SizedBox(height: 20),
               Container(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => WebViewPage(),
-                        ),
-                      );
-                    },
-                    child: Text('Open Web-page'),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WebViewPage(),
+                      ),
+                    );
+                  },
+                  child: Text('Open Web-page'),
                 )
               ),
+              Container(
+                child: new ElevatedButton(
+                  onPressed: _launchURL,
+                  child: new Text('Show Flutter homepage'),
+                ),
+              )
             ],
           ),
         ),
@@ -331,5 +336,12 @@ class _WebViewPageState extends State<WebViewPage> {
         javascriptMode: JavascriptMode.unrestricted,
       ),
     );
+  }
+}
+
+_launchURL() async {
+  final Uri url = Uri.parse('https://docs.flutter.dev');
+  if (!await launchUrl(url)) {
+    throw Exception('Could not launch url');
   }
 }
