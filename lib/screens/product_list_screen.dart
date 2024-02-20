@@ -14,6 +14,10 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
+  final List<String> browsers = ['Default', 'Chrome', 'Yandex']; // Add more browsers as needed
+  String selectedBrowser = 'Default'; // Default browser selection
+
+
   final List<String> imageListt = [
     'assets/apple.png',
     'assets/samsung.png',
@@ -303,13 +307,18 @@ class _ProductListScreenState extends State<ProductListScreen> {
                       ),
                     );
                   },
-                  child: Text('Open Web-page'),
+                  child: Text('Local web-page'),
                 )
               ),
               Container(
-                child: new ElevatedButton(
-                  onPressed: _launchURL,
-                  child: new Text('Show Flutter homepage'),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => _launchURL(),
+                      child: Text('Visit Website'),
+                    ),
+                  ],
                 ),
               )
             ],
@@ -317,6 +326,18 @@ class _ProductListScreenState extends State<ProductListScreen> {
         ),
       ),
     );
+  }
+  _launchURL() async {
+    final Uri url = Uri.parse('https://flutter.dev/');
+    try{
+        if (await canLaunchUrl(url)) {
+        await launchUrl(url);
+      } else {
+        throw 'Could not launch $url';
+      }
+    } catch (e) {
+      print('Error launching URL: $e');
+    }
   }
 }
 class WebViewPage extends StatefulWidget {
@@ -336,12 +357,5 @@ class _WebViewPageState extends State<WebViewPage> {
         javascriptMode: JavascriptMode.unrestricted,
       ),
     );
-  }
-}
-
-_launchURL() async {
-  final Uri url = Uri.parse('https://docs.flutter.dev');
-  if (!await launchUrl(url)) {
-    throw Exception('Could not launch url');
   }
 }
