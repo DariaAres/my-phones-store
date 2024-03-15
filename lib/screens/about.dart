@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class About extends StatefulWidget {
   @override
@@ -10,46 +11,74 @@ class _About extends State<About> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
-      appBar: AppBar(
-        title: Text('About Page'),
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+    return MaterialApp(
+      title: 'Timer Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      body: SingleChildScrollView(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Image.asset(
-              'assets/underc.png',
-              fit: BoxFit.cover,
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+      home: TimerDemo(),
+    );
+  }
+}
+
+class TimerDemo extends StatefulWidget {
+  @override
+  _TimerDemoState createState() => _TimerDemoState();
+}
+
+class _TimerDemoState extends State<TimerDemo> {
+  int _counter = 0;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    // Установка таймера на выполнение функции _incrementCounter каждые 2 секунды
+    _timer = Timer.periodic(Duration(seconds: 2), (timer) {
+      _incrementCounter();
+    });
+  }
+
+  @override
+  void dispose() {
+    // Остановка таймера при уничтожении состояния
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      if(_counter < 10){
+        _counter++;
+        print("Counter: $_counter");
+      }
+      else {
+        print("Counter достиг $_counterя");
+      }
+    });
+  }
+
+  String info() {
+    return _counter < 10 ? '$_counter' : 'Counter достиг предела';
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Timer Demo'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Сообщение будет обновлено каждые 2 секунды:',
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: 550.0),
-                Text(
-                  'The App is still Under Construction....',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 18.0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 10.0),
-                Text(
-                  'The project is made by: Daria Kapoor',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 18.0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+            Text(
+              info(),
+              style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),

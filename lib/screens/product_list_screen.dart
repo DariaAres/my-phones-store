@@ -5,6 +5,7 @@ import 'package:my_phones_store/pages/product_detail_screen.dart';
 import 'package:my_phones_store/services/product_service.dart';
 import 'package:my_phones_store/screens/products.dart';
 import 'package:my_phones_store/screens/about.dart';
+import 'package:my_phones_store/screens/hooks.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -186,7 +187,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
               ),
               ListTile(
                 title: Text(
-                  'About us',
+                  'Timer',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -195,6 +196,19 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => About()));
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Hooks',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                leading: Icon(Icons.info, color: Colors.white),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Hooks()));
                 },
               ),
             ],
@@ -320,7 +334,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
