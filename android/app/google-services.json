@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "154204761153",
+    "project_id": "my-phones-app",
+    "storage_bucket": "my-phones-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154204761153:android:929cffc0e9d8731ac1aac0",
+        "android_client_info": {
+          "package_name": "com.example.my_phones_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154204761153-hdkua7cg924r17s8qnb2vd1kj4v8lbjd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBryMrddE45LA2j52BggDfeC3dyT0FxyKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154204761153-hdkua7cg924r17s8qnb2vd1kj4v8lbjd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154204761153-096oe0rfa3es8d2ndkk5opbbq86o9ejc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myPhonesStore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154204761153:android:21003f8607386a14c1aac0",
+        "android_client_info": {
+          "package_name": "phone.store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154204761153-05dndclrd8cn09bdm4os9hv1q3rkn1sa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "phone.store",
+            "certificate_hash": "a406df71b70b0862e0bfb7d82495afdc707b2637"
+          }
+        },
+        {
+          "client_id": "154204761153-hdkua7cg924r17s8qnb2vd1kj4v8lbjd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBryMrddE45LA2j52BggDfeC3dyT0FxyKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154204761153-hdkua7cg924r17s8qnb2vd1kj4v8lbjd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154204761153-096oe0rfa3es8d2ndkk5opbbq86o9ejc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myPhonesStore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

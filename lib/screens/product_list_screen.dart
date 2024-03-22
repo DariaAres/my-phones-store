@@ -311,19 +311,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 ),
               ),
               SizedBox(height: 20),
-              Container(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => WebViewPage(),
-                      ),
-                    );
-                  },
-                  child: Text('Local web-page'),
-                )
-              ),
+
               Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -352,24 +340,5 @@ class _ProductListScreenState extends State<ProductListScreen> {
     } catch (e) {
       print('Error launching URL: $e');
     }
-  }
-}
-class WebViewPage extends StatefulWidget {
-  @override
-  _WebViewPageState createState() => _WebViewPageState();
-}
-
-class _WebViewPageState extends State<WebViewPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Local Web Page'),
-      ),
-      body: WebView(
-        initialUrl: 'https://docs.flutter.dev',
-        javascriptMode: JavascriptMode.unrestricted,
-      ),
-    );
   }
 }

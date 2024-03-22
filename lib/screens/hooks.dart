@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import 'package:my_phones_store/screens/product_list_screen.dart';
 
 class Hooks extends StatefulWidget {
   @override
@@ -23,9 +24,10 @@ class MyHomePage extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Hooks Example'),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        title: Text('All Products'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
